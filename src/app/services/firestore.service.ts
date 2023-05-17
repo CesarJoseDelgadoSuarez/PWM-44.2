@@ -13,8 +13,7 @@ export class FirestoreService {
 
   getCollection(collectionName: string): Observable<any> {
     const collectionInfo = collection(this.firestore, collectionName);
-    return collectionData(collectionInfo,{idField :'id'})
-    .pipe(map(usuarios => usuarios as UserModel[]))
+    return collectionData(collectionInfo,{idField :'id'}) as Observable<any>
   }
 
 }
