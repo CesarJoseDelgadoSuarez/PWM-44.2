@@ -4,9 +4,9 @@ const config: CapacitorConfig = {
   appId: 'ionic.firebase',
   appName: 'ionic-firebase',
   webDir: 'www',
-  server: {
-    androidScheme: 'https'
-  }
+  // server: {
+  //   androidScheme: 'https'
+  // }
 };
 
 export default config;

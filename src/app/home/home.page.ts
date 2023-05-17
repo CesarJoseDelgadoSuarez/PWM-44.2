@@ -9,17 +9,27 @@ import { UserModel } from '../user/user.model';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  public prueba: Observable<UserModel[]>;
-  texto:string = "antes de la lista"
+  public usuarios: UserModel[] = [];
+  texto:string = "Despues de la lista"
 
 
   constructor(private firestoreService: FirestoreService) {
-    this.prueba = firestoreService.getCollection("users")
-    console.log(this.prueba);
   }
 
   ngOnInit() {
+    this.getUsers();
+  }
+  getUsers() {
+    this.firestoreService.getCollection("users").subscribe(data => {
+      this.usuarios=data.map((user: any) =>{
+        console.log(user);
 
+        return{
+          id: user.id,
+          ...user
+        } as UserModel;
+      });
+    });
   }
 
   doSomething() {
