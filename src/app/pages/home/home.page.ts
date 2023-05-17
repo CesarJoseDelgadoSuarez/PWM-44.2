@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FirestoreService } from '../services/firestore.service';
+import { FirestoreService } from '../../services/firestore.service';
 import { log } from 'console';
 import { Observable } from 'rxjs';
-import { UserModel } from '../user/user.model';
-import {GasStation} from "../models/GasStation/gas-station.model";
-import {GasStationService} from "../services/gas-station.service";
+import { UserModel } from '../../user/user.model';
+import {GasStation} from "../../models/GasStation/gas-station.model";
+import {GasStationService} from "../../services/gas-station.service";
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
