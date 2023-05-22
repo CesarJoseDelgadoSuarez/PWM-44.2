@@ -12,23 +12,26 @@ import {GasStationService} from "../../services/gas-station.service";
 })
 export class HomePage implements OnInit {
   public gasStations: GasStation[] = [];
-  texto:string = "Despues de la lista"
+  public favoriteGasStations: GasStation[] = [];
 
-
-  constructor(private gasStationService: GasStationService) {
-  }
+  constructor(private gasStationService: GasStationService) {}
 
   ngOnInit() {
-    this.getUsers();
-  }
-  getUsers() {
-
-    this.gasStationService.getCanaryIslandsGasStations().subscribe((gasStations) => {
-      this.gasStations = gasStations;
-    })
+    this.getGasStations();
   }
 
-  doSomething() {
-    this.texto = "buenas tardes"
+  getGasStations() {
+    this.gasStationService
+      .getCanaryIslandsGasStations()
+      .subscribe((gasStations) => {
+        this.gasStations = gasStations;
+      });
+  }
+
+  getFavoriteGasStations() {
+    this.gasStationService.getFavoriteGasStations().subscribe((gasStations) => {
+      this.favoriteGasStations = gasStations;
+      console.log(this.favoriteGasStations);
+    });
   }
 }

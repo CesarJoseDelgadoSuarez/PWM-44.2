@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {HomePage} from './home.page';
 
 import {HomePageRoutingModule} from './home-routing.module';
+import {SQLite} from "@awesome-cordova-plugins/sqlite/ngx";
 
 
 @NgModule({
