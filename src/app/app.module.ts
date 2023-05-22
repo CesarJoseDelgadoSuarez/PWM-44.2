@@ -25,7 +25,6 @@ import {SQLite} from "@awesome-cordova-plugins/sqlite/ngx";
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     HttpClientModule,
-    SQLite,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
