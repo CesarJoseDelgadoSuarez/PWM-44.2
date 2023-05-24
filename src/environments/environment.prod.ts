@@ -1,12 +1,12 @@
 export const environment = {
   firebase: {
-    projectId: 'pwm2023-fba58',
-    appId: '1:706882571174:web:48dcbff9ac71cb6df9dd67',
-    storageBucket: 'pwm2023-fba58.appspot.com',
-    locationId: 'europe-west',
-    apiKey: 'AIzaSyAQ1W5f1WFj4bxwnNn2rzCBzc5vWO2qVmo',
-    authDomain: 'pwm2023-fba58.firebaseapp.com',
-    messagingSenderId: '706882571174',
+    locationId: 'eur3',
+    apiKey: "AIzaSyA5rqVsw86MJBZ0GtSMRKcdWGUZlCw8guA",
+    authDomain: "pwm2-8a13a.firebaseapp.com",
+    projectId: "pwm2-8a13a",
+    storageBucket: "pwm2-8a13a.appspot.com",
+    messagingSenderId: "1083626324951",
+    appId: "1:1083626324951:web:b2c5729cb1795289498192"
   },
   production: true
 };
