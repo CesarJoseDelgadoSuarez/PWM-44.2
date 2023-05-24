@@ -11,6 +11,7 @@ import {Capacitor} from "@capacitor/core";
   providedIn: 'root'
 })
 export class GasStationSqliteService {
+  sqlite: SQLiteConnection | undefined;
   isService: boolean = false;
   platform: string | undefined;
   sqlitePlugin: any;
@@ -32,9 +33,9 @@ export class GasStationSqliteService {
       this.native = true;
     }
     this.sqlitePlugin = CapacitorSQLite;
-    let sqlite = new SQLiteConnection(this.sqlitePlugin);
+    this.sqlite = new SQLiteConnection(this.sqlitePlugin);
     this.isService = true;
-    return await this.createConnection('gasStations', false, "no-encryption", 1, sqlite);
+    return await this.createConnection('gasStations', false, "no-encryption", 1, this.sqlite);
   }
 
   async createConnection(database: string, encrypted: boolean,
