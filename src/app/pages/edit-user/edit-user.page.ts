@@ -42,6 +42,15 @@ export class EditUserPage implements OnInit {
 
     this.userService.updateUser(this.userLoged, `users/${this.userLoged.id}`)
     this.authService.userUpdated();
+    this.alertController.create({
+      header: "Perfil Editado",
+      message: "Perfil editado correctamente",
+      buttons:['Aceptar']
+    })
+    .then((alert)=>{
+      alert.present();
+    })
+
   }
 
   async uploadFile(event: any) {
