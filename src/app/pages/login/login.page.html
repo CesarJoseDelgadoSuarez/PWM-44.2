@@ -3,19 +3,19 @@
   <ion-content class="ion-padding">
 
     <ion-card>
-      <ion-card-header>
+      <ion-card-header color="primary">
         <ion-card-title class="ion-text-center">
-          Inicia Sesión
+          <strong>Inicia Sesión</strong>
         </ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <form [formGroup]="formularioLogin" (ngSubmit)="iniciarSesion()">
-            <ion-input label="Correo Electronico" labelPlacement="floating" formControlName="email"></ion-input>
+            <ion-input label="Correo Electronico" class="custom-input" labelPlacement="floating" formControlName="email"></ion-input>
 
-            <ion-input label="Contraseña" labelPlacement="floating" formControlName="password" type="password"></ion-input>
+            <ion-input label="Contraseña" class="custom-input" labelPlacement="floating" formControlName="password" type="password"></ion-input>
 
             <div class="ion-text-center ion-margin-top">
-              <ion-button type="submit">Iniciar Sesión</ion-button>
+              <ion-button type="submit"> <strong>Iniciar Sesión</strong></ion-button>
             </div>
         </form>
       </ion-card-content>

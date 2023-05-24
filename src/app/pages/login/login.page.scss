@@ -19,6 +19,7 @@
 .formulario .text-center {
   text-align: center;
 }
+
 ion-input {
   --background: #ffffff;
   --padding-start: 1rem;
@@ -26,8 +27,9 @@ ion-input {
   --border-radius: 10px;
   width: 100%;
   margin-left: 1rem;
-  margin-right: 1rem;
-
+}
+.native-input{
+  margin-right: 10rem;
 }
 .formulario .boton {
   background-color: #0065A3;

@@ -11,11 +11,12 @@
       </ion-item>
     </ion-list>
 
-    <ion-item class="ion-text-center" *ngIf="this.currentUser===undefined">
+    <ion-list *ngIf="this.currentUser===undefined" class="ion-text-center">
+
       <ion-button (click)="goToPage('/login')">
-        Login
+        <strong>Login</strong>
       </ion-button>
-    </ion-item>
+    </ion-list>
 
     <div class="fill-space"></div>
 
