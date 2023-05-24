@@ -3,9 +3,13 @@
   <ion-content class="ion-padding">
     <ion-list>
       <ion-item *ngFor="let gasStation of displayedGasStations">
-        <ion-label>
+        <ion-title>
           {{gasStation.name}}
-        </ion-label>
+        </ion-title>
+        <ion-text>
+          {{gasStation.address}}. {{gasStation.municipality}}, {{gasStation.zip}}
+        </ion-text>
+
       </ion-item>
     </ion-list>
     <ion-button expand="block" (click)="loadMore()">Cargar más</ion-button>
