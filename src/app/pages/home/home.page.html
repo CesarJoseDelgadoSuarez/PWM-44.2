@@ -2,7 +2,7 @@
   <app-header pageName="Home"></app-header>
   <ion-content class="ion-padding">
     <ion-list>
-      <ion-item *ngFor="let gasStation of displayedGasStations">
+      <ion-item id="gasStationItem" *ngFor="let gasStation of displayedGasStations">
         <ion-title>
           {{gasStation.name}}
         </ion-title>

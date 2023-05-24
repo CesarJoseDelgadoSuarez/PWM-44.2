@@ -5,6 +5,7 @@ import { UserModel } from '../../user/user.model';
 import { Component, OnInit } from '@angular/core';
 import { GasStationService } from '../../services/gas-station.service';
 import { GasStation } from '../../models/GasStation/gas-station.model';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomePage implements OnInit {
   public pageSize = 10;
   public currentPage = 1;
 
-  constructor(private gasStationService: GasStationService) {}
+  constructor(private gasStationService: GasStationService, private router: Router) {}
 
   ngOnInit() {
     this.getGasStations();
@@ -30,6 +31,10 @@ export class HomePage implements OnInit {
     });
   }
 
+  openGasStation(gasStation: GasStation): void {
+    this.router.navigateByUrl('/gas-station', {state: gasStation});
+  }
+
   loadMore() {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
@@ -37,10 +42,6 @@ export class HomePage implements OnInit {
     this.displayedGasStations = this.displayedGasStations.concat(newItems);
     this.currentPage++;
   }
-}
-
-
-
 
 /*
   getFavoriteGasStations() {
@@ -50,3 +51,4 @@ export class HomePage implements OnInit {
     });
   }
   */
+}
