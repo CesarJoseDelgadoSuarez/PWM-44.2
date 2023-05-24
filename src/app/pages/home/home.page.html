@@ -7,9 +7,8 @@
           {{gasStation.name}}
         </ion-title>
         <ion-text>
-          {{gasStation.address}}. {{gasStation.municipality}}, {{gasStation.zip}}
+          {{ truncateText(gasStation.address + '. ' + gasStation.municipality + ', ' + gasStation.zip, 30) }}
         </ion-text>
-
       </ion-item>
     </ion-list>
     <ion-button expand="block" (click)="loadMore()">Cargar más</ion-button>

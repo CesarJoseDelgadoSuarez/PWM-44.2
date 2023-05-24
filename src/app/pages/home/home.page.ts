@@ -34,7 +34,12 @@ export class HomePage implements OnInit {
   openGasStation(gasStation: GasStation): void {
     this.router.navigateByUrl('/gas-station', {state: gasStation});
   }
-
+  truncateText(text: string, maxLength: number): string {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  }
   loadMore() {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
