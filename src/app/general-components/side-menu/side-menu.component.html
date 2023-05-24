@@ -6,24 +6,28 @@
       <ion-title *ngIf="this.currentUser !== undefined">{{this.currentUser.username}}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content id="contenidoSideMenu">
+  <ion-content id="contenidoSideMenu" class="side-menu-content">
 
-    <ion-list *ngIf="this.currentUser!==undefined" class="ion-text-center">
-      <ion-item>
-        <ion-img src="{{photo}}" height="519" width="516" class="ion-border-radius" ></ion-img>
-      </ion-item>
-      <ion-item class="ion-text-center">
-        <ion-button (click)="logout()">
-          LogOut
-        </ion-button>
-      </ion-item>
+    <ion-list class="ion-text-center sidebar-option" *ngFor="let link of links" (click)="goToPage(link.url)">
+      {{link.name}}
     </ion-list>
 
-
-    <ion-item class="ion-text-center" *ngIf="this.currentUser===undefined">
+    <ion-list *ngIf="this.currentUser===undefined" class="ion-text-center">
       <ion-button (click)="goToPage('/login')">
-        Login
+        <strong>Login</strong>
       </ion-button>
-    </ion-item>
+    </ion-list>
+
+    <div class="fill-space"></div>
+
   </ion-content>
+    <ion-list *ngIf="this.currentUser!==undefined" class="ion-text-center" id="ion-photo-user">
+      <ion-button (click)="logout()" class="logout-button">
+        <strong>LogOut</strong>
+      </ion-button>
+      <div class="side-menu-image-container">
+        <ion-img id="myImage" src="{{photo}}" class="ion-border-radius side-menu-image"></ion-img>
+      </div>
+    </ion-list>
+
 </ion-menu>

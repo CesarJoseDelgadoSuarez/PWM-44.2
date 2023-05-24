@@ -25,7 +25,7 @@ export class SideMenuComponent  implements OnInit {
   ]
   linksUserLogged: any[] = [
     {
-      name:"Home Logged",
+      name:"Home",
       url:"/"
     },
     {

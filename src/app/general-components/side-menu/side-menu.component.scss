@@ -33,6 +33,22 @@
 
 .ion-text-center{
   align-items: center;
+  border-bottom: 1px gray solid;
+}
+.sidebar-option {
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.sidebar-option:hover {
+  background-color: #f5f5f5;
+}
+
+.sidebar-option.active {
+  background-color: #e0e0e0;
 }
 
 #ion-photo-user {
