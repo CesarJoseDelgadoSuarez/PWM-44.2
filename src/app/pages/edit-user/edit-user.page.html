@@ -1,9 +1,9 @@
 <div class="ion-page" id="main-content">
-  <app-header pageName="Registration"></app-header>
+  <app-header pageName="Editar perfil"></app-header>
   <ion-content class="ion-padding">
-    <ion-card>
+    <ion-card class="card-edit-perfil">
       <ion-card-header>
-        <ion-card-title class="ion-text-center"> Registrate </ion-card-title>
+        <ion-card-title class="ion-text-center"> <strong>Editar perfil</strong> </ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <form [formGroup]="formularioActualizarUsuario" (ngSubmit)="updateUser()">
@@ -13,7 +13,7 @@
             formControlName="username"
           ></ion-input>
 
-          <ion-input
+          <ion-input class="bg-form"
             label="Correo Electronico"
             labelPlacement="floating"
             formControlName="email"
@@ -23,7 +23,7 @@
           <input id="uploadBtn" type="file" class="upload" (change)="uploadFile($event.target)">
 
           <div class="ion-text-center ion-margin-top">
-            <ion-button type="submit">Registrate</ion-button>
+            <ion-button type="submit"><strong>Editar</strong></ion-button>
           </div>
         </form>
       </ion-card-content>

@@ -3,11 +3,10 @@
   <app-header [pageName]="gasStation.name"></app-header>
 
   <div id="descriptionBody">
-    <h4>Ubicación:</h4>
-    <p>{{gasStation.address}}. {{gasStation.municipality}}, {{gasStation.zip}}</p>
+    <h4 class="titulo-gas"><strong>Ubicación:</strong></h4>
+    <p class="nombre-via">{{gasStation.address}}. {{gasStation.municipality}}, {{gasStation.zip}}</p>
 
-    <h4>Precios:</h4>
+    <h4 class="titulo-gas"><strong>Precios:</strong></h4>
     <app-gas-price-list [gasPrices]="gasPrices"></app-gas-price-list>
   </div>
-
 </ion-content>
