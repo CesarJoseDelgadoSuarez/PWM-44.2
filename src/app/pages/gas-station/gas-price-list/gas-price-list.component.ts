@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {GasPrice} from "../../models/GasStation/gas-price.model";
+import {GasPrice} from "../../../models/GasStation/gas-price.model";
 
 @Component({
   selector: 'app-gas-price-list',

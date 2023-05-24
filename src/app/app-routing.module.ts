@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'gas-station',
-    loadChildren: () => import('./gas-station/gas-station.module').then( m => m.GasStationPageModule)
+    loadChildren: () => import('./pages/gas-station/gas-station.module').then(m => m.GasStationPageModule)
   },
   {
     path: 'editUser',

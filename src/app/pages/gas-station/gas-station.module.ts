@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { GasStationPageRoutingModule } from './gas-station-routing.module';
 
 import { GasStationPage } from './gas-station.page';
-import {componentsModule} from "../general-components/components.module";
+import {componentsModule} from "../../general-components/components.module";
 import {GasPriceListComponent} from "./gas-price-list/gas-price-list.component";
 
 @NgModule({

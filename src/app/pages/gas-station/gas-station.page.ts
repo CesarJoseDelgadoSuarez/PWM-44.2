@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {GasStation} from "../models/GasStation/gas-station.model";
-import {GasPrice} from "../models/GasStation/gas-price.model";
-import {GasStationService} from "../services/gas-station.service";
+import {GasStation} from "../../models/GasStation/gas-station.model";
+import {GasPrice} from "../../models/GasStation/gas-price.model";
+import {GasStationService} from "../../services/gas-station.service";
 
 @Component({
   selector: 'app-gas-station',
