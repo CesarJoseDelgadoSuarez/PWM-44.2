@@ -27,11 +27,12 @@ export class HomePage implements OnInit {
         this.gasStations = gasStations;
       });
   }
-
+  /*
   getFavoriteGasStations() {
     this.gasStationService.getFavoriteGasStations().subscribe((gasStations) => {
       this.favoriteGasStations = gasStations;
       console.log(this.favoriteGasStations);
     });
   }
+  */
 }
