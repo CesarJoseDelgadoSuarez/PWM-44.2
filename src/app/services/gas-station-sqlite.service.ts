@@ -1,52 +1,72 @@
 import { Injectable } from '@angular/core';
-import {SQLite, SQLiteObject} from "@awesome-cordova-plugins/sqlite/ngx";
 import {Platform} from "@ionic/angular";
 import {from, Observable, of} from "rxjs";
 import {GasStation} from "../models/GasStation/gas-station.model";
+import { CapacitorSQLite, SQLiteDBConnection, SQLiteConnection, capSQLiteSet,
+  capSQLiteChanges, capSQLiteValues, capEchoResult, capSQLiteResult,
+  capNCDatabasePathResult } from '@capacitor-community/sqlite';
+import {Capacitor} from "@capacitor/core";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GasStationSqliteService {
-  private dbInstance: SQLiteObject | undefined;
+  isService: boolean = false;
+  platform: string | undefined;
+  sqlitePlugin: any;
+  native: boolean = false;
+  db: SQLiteDBConnection | undefined;
 
-  constructor(private sqlite: SQLite, private platform: Platform) {
-    this.dbConnection();
-  }
 
-  private dbConnection() {
-    this.platform.ready().then(() => {
-      this.sqlite
-        .create({
-          name: 'gasStation.db',
-          location: 'default',
-        })
-        .then((db: SQLiteObject) => {
-          this.dbInstance = db;
-          this.createTable();
-        });
+  constructor() {
+    this.initializePlugin().then((db) => {
+      this.db = db;
+      db.open();
+      this.createTable();
     });
   }
 
-  private createTable() {
-    if (!this.dbInstance) return;
+  async initializePlugin(): Promise<SQLiteDBConnection> {
+    this.platform = Capacitor.getPlatform();
+    if ( this.platform === 'ios' || this.platform === 'android' ) {
+      this.native = true;
+    }
+    this.sqlitePlugin = CapacitorSQLite;
+    let sqlite = new SQLiteConnection(this.sqlitePlugin);
+    this.isService = true;
+    return await this.createConnection('gasStations', false, "no-encryption", 1, sqlite);
+  }
 
-    this.dbInstance
-      .executeSql(
-        `CREATE TABLE IF NOT EXISTS favGasStation (
-        gasStationId INTEGER PRIMARY KEY
-        )`
+  async createConnection(database: string, encrypted: boolean,
+                         mode: string, version: number, sqlite: SQLiteConnection
+  ): Promise<SQLiteDBConnection> {
+    const db: SQLiteDBConnection = await sqlite.createConnection(database, encrypted, mode, version, false);
+    if ( db == null || !db) {
+      throw new Error(`no db returned is null`);
+    }
+    console.log(db);
+    return db;
+  }
+
+  private createTable() {
+    if (!this.db) return;
+
+    this.db
+      .execute(
+        "CREATE TABLE IF NOT EXISTS favGasStation (gasStationId INTEGER PRIMARY KEY)"
       )
-      .then((res) => alert(JSON.stringify(res)))
-      .catch((error) => alert(JSON.stringify(error)));
+      .then((res) => console.log('Table creation response: ', res))
+      .catch((error) => {
+        throw new Error(`Table creation error: ${error}`)
+      });
   }
 
 
   getFavoriteGasStations(): Observable<GasStation[]> {
-    if (!this.dbInstance) return of([]);
+    if (!this.db) return of([]);
 
     return from<Promise<GasStation[]>>(
-      this.dbInstance.executeSql(`SELECT * FROM favGasStation`, [])
+      <Promise<GasStation[]>><unknown>this.db.query(`SELECT * FROM favGasStation`)
     );
   }
 }
