@@ -35,7 +35,7 @@ export class SideMenuComponent  implements OnInit {
   ]
   linksAdmin: any[] = [
     {
-      name:"Home Admin",
+      name:"Home",
       url:"/"
     }
   ]

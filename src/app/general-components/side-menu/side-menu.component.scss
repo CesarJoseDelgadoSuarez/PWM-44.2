@@ -27,13 +27,16 @@
 }
 
 .side-menu-image {
-  width: 25%;
+  width: 30%;
   height: auto;
+  border-radius: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .ion-text-center{
   align-items: center;
-  border-bottom: 1px gray solid;
 }
 .sidebar-option {
   align-items: center;
