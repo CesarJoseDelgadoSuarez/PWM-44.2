@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged, signInWithEmailAndPassword, signOut, createUserWithEmailAndPassword} from '@angular/fire/auth';
 import { User } from 'src/app/models/User/user.model';
 import { UserService } from '../user/user.service';
 import { BehaviorSubject } from 'rxjs';
@@ -22,9 +22,15 @@ export class AuthenticationService {
       }
     })
   }
+
   get isLoggedIn(){
     return this.userLogged.asObservable(); // convierte el loggedIn a un Observable para poder suscribirse
   }
+
+  getLogedUser(){
+    return this.currentUser!
+  }
+
   setUser(id: string) {
     this.userService.getUserById(`users/${id}`)
       .then(docData => {
@@ -51,5 +57,22 @@ export class AuthenticationService {
     .then(() =>{
       this.router.navigate(['/']);
     })
+  }
+
+  createUserWithEmailAndPassword(email: any, password: any, username: string) {
+    createUserWithEmailAndPassword(this.auth, email, password)
+      .then((userCredential) => {
+        const user: User = {
+          id: userCredential.user.uid,
+          email: userCredential.user.email!,
+          is_admin:false,
+          photo_url: "none",
+          username: username,
+        }
+        this.userService.createUser(user)
+        .then(()=>{
+          this.router.navigate(['']);
+        })
+      })
   }
 }

@@ -27,12 +27,20 @@ export class SideMenuComponent  implements OnInit {
     {
       name:"Home Logged",
       url:"/"
+    },
+    {
+      name:"Editar Usuario",
+      url:"/editUser"
     }
   ]
   linksAdmin: any[] = [
     {
       name:"Home Admin",
       url:"/"
+    },
+    {
+      name:"Editar Usuario",
+      url:"/editUser"
     }
   ]
 

@@ -19,6 +19,10 @@ import {HttpClientModule} from "@angular/common/http";
 import { componentsModule } from './general-components/components.module';
 import { FormsModule } from '@angular/forms';
 
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -29,6 +33,9 @@ import { FormsModule } from '@angular/forms';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
     HttpClientModule,
     componentsModule,
     FormsModule

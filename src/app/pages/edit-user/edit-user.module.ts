@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserRegistrationPageRoutingModule } from './user-registration-routing.module';
+import { EditUserPageRoutingModule } from './edit-user-routing.module';
 
-import { UserRegistrationPage } from './user-registration.page';
+import { EditUserPage } from './edit-user.page';
 import { componentsModule } from 'src/app/general-components/components.module';
 
 @NgModule({
@@ -14,10 +14,10 @@ import { componentsModule } from 'src/app/general-components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    UserRegistrationPageRoutingModule,
+    EditUserPageRoutingModule,
     componentsModule,
     ReactiveFormsModule
   ],
-  declarations: [UserRegistrationPage]
+  declarations: [EditUserPage]
 })
-export class UserRegistrationPageModule {}
+export class EditUserPageModule {}

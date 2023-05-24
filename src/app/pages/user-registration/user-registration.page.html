@@ -1,8 +1,43 @@
 <div class="ion-page" id="main-content">
   <app-header pageName="Registration"></app-header>
   <ion-content class="ion-padding">
-    <ion-list>
-      Aqui iria el formulario de registro de usuario
-    </ion-list>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center"> Registrate </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="formularioRegistro" (ngSubmit)="registarUsuario()">
+          <ion-input
+            label="Nombre de usuario"
+            labelPlacement="floating"
+            formControlName="username"
+          ></ion-input>
+
+          <ion-input
+            label="Correo Electronico"
+            labelPlacement="floating"
+            formControlName="email"
+          ></ion-input>
+
+          <ion-input
+            label="Contraseña"
+            labelPlacement="floating"
+            formControlName="password"
+            type="password"
+          ></ion-input>
+
+          <ion-input
+            label="Confirmar Contraseña"
+            labelPlacement="floating"
+            formControlName="confirmPassword"
+            type="password"
+          ></ion-input>
+
+          <div class="ion-text-center ion-margin-top">
+            <ion-button type="submit">Registrate</ion-button>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
   </ion-content>
 </div>

@@ -1,0 +1,28 @@
+<div class="ion-page" id="main-content">
+  <app-header pageName="Login"></app-header>
+  <ion-content class="ion-padding">
+
+    <ion-card>
+      <ion-card-header color="primary">
+        <ion-card-title class="ion-text-center">
+          <strong>Inicia Sesión</strong>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="formularioEditUser" (ngSubmit)="editUser()">
+            <ion-input label="Correo Electronico" class="custom-input" labelPlacement="floating" formControlName="email" [disabled]="true"></ion-input>
+
+            <ion-input label="Nombre de Usuario" class="custom-input" labelPlacement="floating" formControlName="username" type="text"></ion-input>
+
+            <input type="file" (change)="uploadFile($event)">
+
+            <div class="ion-text-center ion-margin-top">
+              <ion-button type="submit" class="ion-margin-top">Actualiza tu perfil</ion-button>
+
+            </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-content>
+</div>

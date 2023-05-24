@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'gas-station',
     loadChildren: () => import('./gas-station/gas-station.module').then( m => m.GasStationPageModule)
   },
+  {
+    path: 'editUser',
+    loadChildren: () => import('./pages/edit-user/edit-user.module').then( m => m.EditUserPageModule)
+  },
 ];
 
 @NgModule({
