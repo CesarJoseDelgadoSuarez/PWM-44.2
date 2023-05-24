@@ -1,7 +1,7 @@
 import { FirestoreService } from '../../services/firestore.service';
 import { log } from 'console';
 import { Observable } from 'rxjs';
-import { UserModel } from '../../user/user.model';
+
 import { Component, OnInit } from '@angular/core';
 import { GasStationService } from '../../services/gas-station.service';
 import { GasStation } from '../../models/GasStation/gas-station.model';

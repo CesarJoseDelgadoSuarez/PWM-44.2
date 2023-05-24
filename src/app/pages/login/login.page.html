@@ -1,8 +1,25 @@
 <div class="ion-page" id="main-content">
   <app-header pageName="Login"></app-header>
   <ion-content class="ion-padding">
-    <ion-list>
-      Aqui iria el formulario de inicio de sesion
-    </ion-list>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">
+          Inicia Sesión
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="formularioLogin" (ngSubmit)="iniciarSesion()">
+            <ion-input label="Correo Electronico" labelPlacement="floating" formControlName="email"></ion-input>
+
+            <ion-input label="Contraseña" labelPlacement="floating" formControlName="password" type="password"></ion-input>
+
+            <div class="ion-text-center ion-margin-top">
+              <ion-button type="submit">Iniciar Sesión</ion-button>
+            </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
   </ion-content>
 </div>
