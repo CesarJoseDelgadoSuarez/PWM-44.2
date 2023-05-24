@@ -25,6 +25,11 @@
 #container a {
   text-decoration: none;
 }
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 #gasStationItem {
   display: flex;

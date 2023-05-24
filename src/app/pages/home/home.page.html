@@ -4,10 +4,10 @@
     <ion-list>
       <ion-item button="true" id="gasStationItem" *ngFor="let gasStation of displayedGasStations" (click)="openGasStation(gasStation)">
         <ion-title>
-          {{gasStation.name}}
+          {{ truncateText(gasStation.name, 15) }}
         </ion-title>
-        <ion-text>
-          {{ truncateText(gasStation.address + '. ' + gasStation.municipality + ', ' + gasStation.zip, 30) }}
+        <ion-text [ngClass]="{'truncate-text': isSmallScreen}">
+          {{gasStation.address + '. ' + gasStation.municipality + ', ' + gasStation.zip}}
         </ion-text>
       </ion-item>
     </ion-list>

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { GasStationService } from '../../services/gas-station.service';
 import { GasStation } from '../../models/GasStation/gas-station.model';
 import {Router} from "@angular/router";
+import {HostListener, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +18,10 @@ export class HomePage implements OnInit {
   public displayedGasStations: GasStation[] = [];
   public pageSize = 10;
   public currentPage = 1;
+  isSmallScreen = false;
 
-  constructor(private gasStationService: GasStationService, private router: Router) {}
+
+  constructor(private gasStationService: GasStationService, private router: Router,private renderer: Renderer2) {}
 
   ngOnInit() {
     this.getGasStations();
@@ -30,6 +33,18 @@ export class HomePage implements OnInit {
       this.loadMore();
     });
   }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event: any) {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+      const screenWidth = window.innerWidth;
+      this.isSmallScreen = screenWidth < 768; // Cambia el valor "768" según tu criterio de tamaño de pantalla
+  }
+
+
 
   openGasStation(gasStation: GasStation): void {
     this.router.navigateByUrl('/gas-station', {state: gasStation});
