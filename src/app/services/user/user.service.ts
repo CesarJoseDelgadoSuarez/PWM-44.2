@@ -8,6 +8,7 @@ import { User } from 'src/app/models/User/user.model';
 })
 export class UserService {
 
+
   constructor(private firestore: Firestore) {}
 
   async getUserById(coll: string) {
@@ -27,8 +28,8 @@ export class UserService {
     return setDoc(collRef, user);
   }
 
-  editUser(currentUser: {}, coll: string) {
+  updateUser(user: {}, coll:string) {
     const collRef = doc(this.firestore, coll)
-    return updateDoc(collRef, currentUser);
+    return updateDoc(collRef, user);
   }
 }

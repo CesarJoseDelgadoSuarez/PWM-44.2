@@ -15,8 +15,9 @@ import { componentsModule } from 'src/app/general-components/components.module';
     FormsModule,
     IonicModule,
     EditUserPageRoutingModule,
-    componentsModule,
-    ReactiveFormsModule
+
+    ReactiveFormsModule,
+    componentsModule
   ],
   declarations: [EditUserPage]
 })

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthenticationService {
+
   private userLogged = new BehaviorSubject<User | undefined>(undefined);
   private currentUser: User | undefined = undefined;
 
@@ -23,11 +24,15 @@ export class AuthenticationService {
     })
   }
 
+  userUpdated() {
+    this.setUser(this.currentUser!.id)
+  }
+
   get isLoggedIn(){
     return this.userLogged.asObservable(); // convierte el loggedIn a un Observable para poder suscribirse
   }
 
-  getLogedUser(){
+  getUser(){
     return this.currentUser!
   }
 

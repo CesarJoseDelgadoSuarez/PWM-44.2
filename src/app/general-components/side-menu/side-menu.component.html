@@ -1,34 +1,29 @@
 <ion-menu side="start" menuId="first" contentId="mainContent">
   <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title>Menú Principal</ion-title>
+    <ion-toolbar color="primary" class="ion-padding-left ion-padding-top ion-padding-bottom">
+      <ion-title *ngIf="this.currentUser === undefined">Menu Principal</ion-title>
+      <ion-title *ngIf="this.currentUser !== undefined">Bienvenido</ion-title>
+      <ion-title *ngIf="this.currentUser !== undefined">{{this.currentUser.username}}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content id="contenidoSideMenu" class="side-menu-content">
-    <ion-list class="ion-padding">
-      <ion-item *ngFor="let link of links" (click)="goToPage(link.url)">
-        {{link.name}}
+  <ion-content id="contenidoSideMenu">
+
+    <ion-list *ngIf="this.currentUser!==undefined" class="ion-text-center">
+      <ion-item>
+        <ion-img src="{{photo}}" height="519" width="516" class="ion-border-radius" ></ion-img>
+      </ion-item>
+      <ion-item class="ion-text-center">
+        <ion-button (click)="logout()">
+          LogOut
+        </ion-button>
       </ion-item>
     </ion-list>
 
-    <ion-list *ngIf="this.currentUser===undefined" class="ion-text-center">
 
+    <ion-item class="ion-text-center" *ngIf="this.currentUser===undefined">
       <ion-button (click)="goToPage('/login')">
-        <strong>Login</strong>
+        Login
       </ion-button>
-    </ion-list>
-
-    <div class="fill-space"></div>
-
+    </ion-item>
   </ion-content>
-
-  <ion-list *ngIf="this.currentUser!==undefined" class="ion-text-center" id="ion-photo-user">
-      <ion-button (click)="logout()" class="logout-button">
-        <strong>LogOut</strong>
-      </ion-button>
-    <div class="side-menu-image-container">
-      <ion-img id="myImage" src="{{photo}}" class="ion-border-radius side-menu-image"></ion-img>
-    </div>
-  </ion-list>
-
 </ion-menu>

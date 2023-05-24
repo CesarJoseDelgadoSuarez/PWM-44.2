@@ -29,7 +29,7 @@ export class SideMenuComponent  implements OnInit {
       url:"/"
     },
     {
-      name:"Editar Usuario",
+      name:"Editar Perfil",
       url:"/editUser"
     }
   ]
@@ -37,10 +37,6 @@ export class SideMenuComponent  implements OnInit {
     {
       name:"Home Admin",
       url:"/"
-    },
-    {
-      name:"Editar Usuario",
-      url:"/editUser"
     }
   ]
 
