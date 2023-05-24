@@ -43,6 +43,7 @@ export class HomePage implements OnInit {
     this.currentPage++;
   }
 
+
 /*
   getFavoriteGasStations() {
     this.gasStationService.getFavoriteGasStations().subscribe((gasStations) => {

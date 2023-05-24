@@ -1,4 +1,41 @@
+
 #contenidoSideMenu{
   display: flex;
   justify-content: space-between;
+}
+.side-menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.fill-space {
+  flex: 1;
+}
+
+.side-menu-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+.logout-button{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.side-menu-image {
+  width: 25%;
+  height: auto;
+}
+
+.ion-text-center{
+  align-items: center;
+}
+
+#ion-photo-user {
+  display: flex;
+  flex-direction: column-reverse;
 }
