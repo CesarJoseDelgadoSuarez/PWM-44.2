@@ -1,0 +1,12 @@
+<ion-menu side="start" menuId="first" contentId="mainContent">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú Principal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list *ngFor="let link of links" (click)="goToPage(link.url)">
+      {{link.name}}
+    </ion-list>
+  </ion-content>
+</ion-menu>

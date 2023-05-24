@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,12 @@ export class HeaderComponent  implements OnInit {
 
   @Input() pageName:string = '';
 
-  constructor() { }
+  constructor(private menuCtrl: MenuController) { }
 
   ngOnInit() {}
+
+  onClick(){
+    this.menuCtrl.toggle();
+  }
 
 }

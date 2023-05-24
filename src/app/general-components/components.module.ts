@@ -3,11 +3,11 @@ import { CommonModule } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
 
 import { HeaderComponent } from "./header/header.component";
-import { LinksHeaderComponent } from "./links-header/links-header.component";
+import { SideMenuComponent } from "./side-menu/side-menu.component";
 @NgModule({
   declarations: [
     HeaderComponent,
-    LinksHeaderComponent
+    SideMenuComponent
   ],
   imports:[
     CommonModule,
@@ -15,7 +15,7 @@ import { LinksHeaderComponent } from "./links-header/links-header.component";
   ],
   exports:[
     HeaderComponent,
-    LinksHeaderComponent
+    SideMenuComponent
   ]
 })
 

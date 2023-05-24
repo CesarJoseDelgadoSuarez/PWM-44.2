@@ -13,6 +13,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import {HttpClientModule} from "@angular/common/http";
 import {SQLite} from "@awesome-cordova-plugins/sqlite/ngx";
+import { componentsModule } from './general-components/components.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import {SQLite} from "@awesome-cordova-plugins/sqlite/ngx";
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     HttpClientModule,
+    componentsModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
