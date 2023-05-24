@@ -53,7 +53,27 @@ export class GasStationSqliteService {
 
     this.db
       .execute(
-        "CREATE TABLE IF NOT EXISTS favGasStation (gasStationId INTEGER PRIMARY KEY)"
+        `CREATE TABLE IF NOT EXISTS favGasStation (
+                        gasStationID INTEGER PRIMARY KEY,
+                        zip NUMERIC,
+                        address TEXT,
+                        business_hours TEXT,
+                        latitude TEXT,
+                        locality TEXT,
+                        longitude TEXT,
+                        margin TEXT,
+                        municipality TEXT,
+                        province TEXT,
+                        remission TEXT,
+                        name TEXT,
+                        sale_type TEXT,
+                        bio_ethanol_percentage TEXT,
+                        methyl_ester_percentage TEXT,
+                        IDEESS TEXT UNIQUE,
+                        municipality_id TEXT,
+                        province_id TEXT,
+                        IDCCAA TEXT
+                   )`
       )
       .then((res) => console.log('Table creation response: ', res))
       .catch((error) => {
@@ -68,5 +88,50 @@ export class GasStationSqliteService {
     return from<Promise<GasStation[]>>(
       <Promise<GasStation[]>><unknown>this.db.query(`SELECT * FROM favGasStation`)
     );
+  }
+
+  addFavoriteGasStation(gasStation: GasStation) {
+    if(!this.db) return;
+
+    return from<Promise<any>>(
+      this.db.run(`INSERT INTO favGasStation (
+                        zip,
+                        address,
+                        business_hours,
+                        latitude,
+                        locality,
+                        longitude,
+                        margin,
+                        municipality,
+                        province,
+                        remission,
+                        name,
+                        sale_type,
+                        bio_ethanol_percentage,
+                        methyl_ester_percentage,
+                        IDEESS,
+                        municipality_id,
+                        province_id,
+                        IDCCAA
+                   ) VALUES (
+                        ${gasStation.zip},
+                        ${gasStation.address},
+                        ${gasStation.business_hours},
+                        ${gasStation.latitude},
+                        ${gasStation.locality},
+                        ${gasStation.longitude},
+                        ${gasStation.margin},
+                        ${gasStation.municipality},
+                        ${gasStation.province},
+                        ${gasStation.remission},
+                        ${gasStation.name},
+                        ${gasStation.sale_type},
+                        ${gasStation.bio_ethanol_percentage},
+                        ${gasStation.methyl_ester_percentage},
+                        ${gasStation.IDEESS},
+                        ${gasStation.municipality_id},
+                        ${gasStation.province_id},
+                        ${gasStation.IDCCAA}
+                   )`).then((res) => console.log('sucssesfully created: ', res)).catch((err) => console.log('Error created: ', err)));
   }
 }
